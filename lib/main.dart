@@ -1,3 +1,4 @@
+import 'package:dschaei_pi_app/screens/start_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,11 +10,13 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
+    return MaterialApp(
+      title: 'Dschäi-Pi-App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const Scaffold(
+        body: Center(child: StartScreen()),
       ),
     );
   }
