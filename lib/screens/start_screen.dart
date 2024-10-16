@@ -12,7 +12,7 @@ class StartScreen extends StatelessWidget {
         fit: StackFit.expand,
         children: [
           Image.asset(
-            "assets/backgrounds/bg_startscreen.png",
+            'assets/backgrounds/bg_startscreen.png',
             fit: BoxFit.cover,
           ),
           Positioned(
@@ -20,13 +20,13 @@ class StartScreen extends StatelessWidget {
               left: 40,
               child: Transform.scale(
                   scale: 1.3,
-                  child: Image.asset("assets/graphics/chick_cupcakes.png"))),
+                  child: Image.asset('assets/graphics/chick_cupcakes.png'))),
           Positioned(
               left: 0,
               right: 0,
               bottom: 60,
-              child: Image.asset("assets/details/T2.png",
-                  fit: BoxFit.fitWidth)), // Bottom detail image
+              child:
+                  Image.asset('assets/details/T2.png', fit: BoxFit.fitWidth)),
           Positioned(
             bottom: 90,
             left: 30,

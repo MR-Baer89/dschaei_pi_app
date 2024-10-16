@@ -8,14 +8,12 @@ import '../widgets/food_container_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
-
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -32,7 +30,6 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Hamburger Icon to open the drawer
                   GestureDetector(
                     onTap: () {
                       _scaffoldKey.currentState?.openDrawer();
@@ -52,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Colors.white),
                   ),
                   const SizedBox(height: 16),
-                  const Categories(), // Assuming Categories() is a separate widget
+                  const Categories(),
                   const SizedBox(height: 32),
                   ClipRRect(
                     borderRadius: const BorderRadius.all(Radius.circular(16)),
@@ -145,7 +142,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         children: [
-                          const SizedBox(width: 16), // Abstand zum linken Rand
+                          const SizedBox(width: 16),
                           _buildFoodItem(
                             title: 'Mogli`s Cup',
                             flavor: 'Strawberry ice cream',
@@ -173,7 +170,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             imagePath: 'assets/graphics/Icecream_3D.png',
                             price: '8.99',
                           ),
-                          const SizedBox(width: 16), // Abstand zum rechten Rand
+                          const SizedBox(width: 16),
                         ],
                       ),
                     ),

@@ -23,7 +23,7 @@ class _MyRatingBarState extends State<MyRatingBar> {
       itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
       itemBuilder: (context, _) => Icon(
         Icons.star,
-        color: Colors.amber,
+        color: const Color.fromARGB(255, 128, 127, 127),
       ),
       onRatingUpdate: (rating) {
         setState(() {

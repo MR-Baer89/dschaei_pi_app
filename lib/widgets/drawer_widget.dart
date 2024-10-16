@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class DrawerWidget extends StatelessWidget {
@@ -26,10 +25,10 @@ class DrawerWidget extends StatelessWidget {
               style: TextStyle(color: Colors.white, fontSize: 24),
             ),
           ),
-          _buildDrawerItem(context, Icons.icecream, "Mogli's Cup"),
-          _buildDrawerItem(context, Icons.icecream, "Balu's Cup"),
-          _buildDrawerItem(context, Icons.icecream, "Ice Cream Stick"),
-          _buildDrawerItem(context, Icons.icecream, "Ice Cup"),
+          _buildDrawerItem(context, Icons.icecream, 'Mogli`s Cup'),
+          _buildDrawerItem(context, Icons.icecream, 'Balu`s Cup'),
+          _buildDrawerItem(context, Icons.icecream, 'Ice Cream Stick'),
+          _buildDrawerItem(context, Icons.icecream, 'Ice Cup'),
         ],
       ),
     );

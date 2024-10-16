@@ -18,7 +18,6 @@ class SizeQuantityState extends State<SizeQuantity> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          // Size selection buttons
           ToggleButtons(
             isSelected: [
               selectedSize == 'Small',
