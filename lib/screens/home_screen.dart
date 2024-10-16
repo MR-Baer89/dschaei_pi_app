@@ -1,7 +1,8 @@
 import 'dart:ui';
+import 'package:dschaei_pi_app/widgets/drawer_widget.dart';
 import 'package:dschaei_pi_app/widgets/my_rating_bar.dart';
+import 'package:dschaei_pi_app/widgets/size_quantity.dart';
 import 'package:flutter/material.dart';
-
 import '../models/categories.dart';
 import '../widgets/food_container_widget.dart';
 
@@ -20,57 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return MaterialApp(
       home: Scaffold(
         key: _scaffoldKey,
-        drawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: [
-              DrawerHeader(
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Color.fromARGB(218, 168, 112, 225),
-                      Color.fromARGB(255, 200, 122, 255)
-                    ],
-                    begin: Alignment.centerRight,
-                    end: Alignment.centerLeft,
-                  ),
-                ),
-                child: const Text(
-                  'Food Menu',
-                  style: TextStyle(color: Colors.white, fontSize: 24),
-                ),
-              ),
-              ListTile(
-                leading: const Icon(Icons.icecream),
-                title: const Text('Mogli\'s Cup'),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.icecream),
-                title: const Text('Balu\'s Cup'),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.icecream),
-                title: const Text('Ice Cream Stick'),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.icecream),
-                title: const Text('Ice Cup'),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-            ],
-          ),
-        ),
+        drawer: const DrawerWidget(),
         body: Stack(
           fit: StackFit.expand,
           children: [
@@ -133,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ]),
                               const SizedBox(height: 8),
                               const Text(
-                                "Delish vegan burger \nthat tastes like heaven",
+                                'Delish vegan burger \nthat tastes like heaven',
                                 style: TextStyle(color: Colors.white),
                               ),
                               const SizedBox(height: 24),
@@ -183,7 +134,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   const SizedBox(height: 40),
-                  const Text("We Recommend",
+                  const Text('We Recommend',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
@@ -196,30 +147,30 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           const SizedBox(width: 16), // Abstand zum linken Rand
                           _buildFoodItem(
-                            title: "Mogli's Cup",
-                            flavor: "Strawberry ice cream",
-                            imagePath: "assets/graphics/cat_cupcakes_3D.png",
+                            title: 'Mogli`s Cup',
+                            flavor: 'Strawberry ice cream',
+                            imagePath: 'assets/graphics/cat_cupcakes_3D.png',
                             price: '8.99',
                           ),
                           const SizedBox(width: 16),
                           _buildFoodItem(
-                            title: "Balu's Cup",
-                            flavor: "Pistachio ice cream",
-                            imagePath: "assets/graphics/Ice.cream.png",
+                            title: 'Balu`s Cup',
+                            flavor: 'Pistachio ice cream',
+                            imagePath: 'assets/graphics/Ice.cream.png',
                             price: '8.99',
                           ),
                           const SizedBox(width: 16),
                           _buildFoodItem(
-                            title: "Ice Cream Stick",
-                            flavor: "Vanilla ice cream",
-                            imagePath: "assets/graphics/ice cream stick_3D.png",
+                            title: 'Ice Cream Stick',
+                            flavor: 'Vanilla ice cream',
+                            imagePath: 'assets/graphics/ice cream stick_3D.png',
                             price: '8.99',
                           ),
                           const SizedBox(width: 16),
                           _buildFoodItem(
-                            title: "Ice Cup",
-                            flavor: "Chocolate ice cream",
-                            imagePath: "assets/graphics/Icecream_3D.png",
+                            title: 'Ice Cup',
+                            flavor: 'Chocolate ice cream',
+                            imagePath: 'assets/graphics/Icecream_3D.png',
                             price: '8.99',
                           ),
                           const SizedBox(width: 16), // Abstand zum rechten Rand
@@ -235,7 +186,7 @@ class _HomeScreenState extends State<HomeScreen> {
               bottom: 280,
               child: Transform.scale(
                   scale: 0.6,
-                  child: Image.asset("assets/graphics/Burger_3D.png")),
+                  child: Image.asset('assets/graphics/Burger_3D.png')),
             ),
           ],
         ),
@@ -281,14 +232,14 @@ class _HomeScreenState extends State<HomeScreen> {
             top: 160, // - 160
             right: 40,
             child: Transform.translate(
-              offset: const Offset(100, -410),
+              offset: const Offset(100, -310),
               child: Container(
                 padding: const EdgeInsets.all(8.0),
                 child: Transform.scale(
                   scale: 0.9,
                   child: const Image(
                     image: AssetImage(
-                      "assets/graphics/cat_cupcakes_3D.png",
+                      'assets/graphics/cat_cupcakes_3D.png',
                     ),
                   ),
                 ),
@@ -307,51 +258,93 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 height: 300,
                 width: 300,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    // Titel
-                    Text(
-                      title,
-                      style: const TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.w800,
-                        color: Colors.white,
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      flavor,
-                      style: const TextStyle(fontSize: 16, color: Colors.grey),
-                    ),
-                    const SizedBox(height: 8),
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          title,
+                          style: const TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.w800,
+                            color: Colors.white,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          flavor,
+                          style:
+                              const TextStyle(fontSize: 16, color: Colors.grey),
+                        ),
+                        const SizedBox(height: 8),
 
-                    const Text(
-                      'Lorem ipsum dolor sit amet consectetur.Dkjnk joh adipis jogw fgvdpkk pkfgenmk dmefpk negfk nefgokn efngrk okjerfgn pkdbfn pegn poekfg cing elit ut aliquip.',
-                      style: TextStyle(fontSize: 10, color: Colors.grey),
+                        const Text(
+                          'Lorem ipsum dolor sit amet consectetur.Dkjnk joh adipis jogw fgvdpkk pkfgenmk dmefpk negfk nefgokn efngrk okjerfgn pkdbfn pegn poekfg cing elit ut aliquip.',
+                          style: TextStyle(fontSize: 10, color: Colors.grey),
+                        ),
+                        const SizedBox(height: 16),
+                        // Preis
+                        Text(
+                          "₳ $price",
+                          style: const TextStyle(
+                            fontSize: 14,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                        Divider(
+                          indent: 30,
+                          endIndent: 30,
+                        ),
+                        SizedBox(
+                          height: 16,
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              'Ingredients',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            SizedBox(
+                              width: 70,
+                            ),
+                            Text(
+                              'Reviews',
+                              style: TextStyle(color: Colors.white),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 16,
+                        ),
+                        Row(
+                          children: [
+                            SizedBox(
+                              height: 20,
+                              width: 110,
+                              child: Image.asset(
+                                'assets/details/incredents.png',
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 32,
+                            ),
+                            MyRatingBar(),
+                          ],
+                        ),
+                      ],
                     ),
-                    const SizedBox(height: 16),
-                    // Preis
-                    Text(
-                      "₳ $price",
-                      style: const TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w800,
-                      ),
-                    ),
-                    Divider(
-                      indent: 30,
-                      endIndent: 30,
-                    ),
-                    MyRatingBar()
-                  ],
+                  ),
                 ),
               ),
             ),
           ),
-          // Schaltfläche unten, um zur Bestellung hinzuzufügen
+          Positioned(bottom: 120, left: 30, right: 30, child: SizeQuantity()),
           Positioned(
             bottom: 40,
             left: 30,

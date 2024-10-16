@@ -19,7 +19,7 @@ class _MyRatingBarState extends State<MyRatingBar> {
       direction: Axis.horizontal,
       allowHalfRating: true,
       itemCount: 5,
-      itemSize: 50.0,
+      itemSize: 20.0,
       itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
       itemBuilder: (context, _) => Icon(
         Icons.star,
