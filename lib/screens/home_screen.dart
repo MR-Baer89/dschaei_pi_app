@@ -1,5 +1,7 @@
 import 'dart:ui';
+import 'package:dschaei_pi_app/widgets/my_rating_bar.dart';
 import 'package:flutter/material.dart';
+
 import '../models/categories.dart';
 import '../widgets/food_container_widget.dart';
 
@@ -250,6 +252,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return GestureDetector(
       onTap: () {
         showModalBottomSheet(
+          scrollControlDisabledMaxHeightRatio: 0.885,
           context: context,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(top: Radius.circular(25.0)),
@@ -268,34 +271,115 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildBottomSheetContent(String title, String flavor, String price) {
     return Container(
+      height: 805,
       width: 500,
-      color: Colors.black,
+      color: const Color.fromARGB(194, 0, 0, 0),
       padding: const EdgeInsets.all(16.0),
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      child: Stack(
         children: [
-          Text(
-            title,
-            style: const TextStyle(
-                fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
+          Positioned(
+            top: 160, // - 160
+            right: 40,
+            child: Transform.translate(
+              offset: const Offset(100, -410),
+              child: Container(
+                padding: const EdgeInsets.all(8.0),
+                child: Transform.scale(
+                  scale: 0.9,
+                  child: const Image(
+                    image: AssetImage(
+                      "assets/graphics/cat_cupcakes_3D.png",
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ),
-          const SizedBox(height: 8),
-          Text(
-            flavor,
-            style: const TextStyle(fontSize: 16, color: Colors.grey),
+          Positioned(
+            top: 200,
+            left: 55,
+            child: Transform.scale(
+              scale: 1.3,
+              child: Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.white60, width: 1.0),
+                  borderRadius: const BorderRadius.all(Radius.circular(16)),
+                ),
+                height: 300,
+                width: 300,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    // Titel
+                    Text(
+                      title,
+                      style: const TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w800,
+                        color: Colors.white,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      flavor,
+                      style: const TextStyle(fontSize: 16, color: Colors.grey),
+                    ),
+                    const SizedBox(height: 8),
+
+                    const Text(
+                      'Lorem ipsum dolor sit amet consectetur.Dkjnk joh adipis jogw fgvdpkk pkfgenmk dmefpk negfk nefgokn efngrk okjerfgn pkdbfn pegn poekfg cing elit ut aliquip.',
+                      style: TextStyle(fontSize: 10, color: Colors.grey),
+                    ),
+                    const SizedBox(height: 16),
+                    // Preis
+                    Text(
+                      "₳ $price",
+                      style: const TextStyle(
+                        fontSize: 14,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    Divider(
+                      indent: 30,
+                      endIndent: 30,
+                    ),
+                    MyRatingBar()
+                  ],
+                ),
+              ),
+            ),
           ),
-          const SizedBox(height: 8),
-          Text(
-            "Price: ₳ $price",
-            style: const TextStyle(fontSize: 16, color: Colors.white),
-          ),
-          const SizedBox(height: 16),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            child: const Text('Add to Order'),
+          // Schaltfläche unten, um zur Bestellung hinzuzufügen
+          Positioned(
+            bottom: 40,
+            left: 30,
+            right: 30,
+            child: Container(
+              width: 350,
+              height: 44.0,
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+                gradient: LinearGradient(colors: [Colors.pink, Colors.orange]),
+              ),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.transparent,
+                  shadowColor: Colors.transparent,
+                ),
+                child: Text(
+                  'Add to order for ₳ $price',
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w900,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
           ),
         ],
       ),
