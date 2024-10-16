@@ -1,18 +1,18 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 class FoodContainerWidget extends StatelessWidget {
   final String title;
   final String flavor;
   final String imagePath;
+  final String price;
 
-  const FoodContainerWidget({
-    super.key,
-    required this.title,
-    required this.flavor,
-    required this.imagePath,
-  });
+  const FoodContainerWidget(
+      {super.key,
+      required this.title,
+      required this.flavor,
+      required this.imagePath,
+      required this.price});
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +46,7 @@ class FoodContainerWidget extends StatelessWidget {
                 const SizedBox(height: 8),
                 Text(title, style: TextStyle(color: Colors.white)),
                 Text(flavor, style: TextStyle(color: Colors.white)),
+                Text(price, style: TextStyle(color: Colors.white)),
               ],
             ),
           ),
