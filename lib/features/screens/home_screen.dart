@@ -1,7 +1,7 @@
 import 'dart:ui';
-import 'package:dschaei_pi_app/widgets/drawer_widget.dart';
-import 'package:dschaei_pi_app/widgets/my_rating_bar.dart';
-import 'package:dschaei_pi_app/widgets/size_quantity.dart';
+import 'package:dschaei_pi_app/features/widgets/drawer_widget.dart';
+import 'package:dschaei_pi_app/features/widgets/my_rating_bar.dart';
+import 'package:dschaei_pi_app/features/widgets/size_quantity.dart';
 import 'package:flutter/material.dart';
 import '../models/categories.dart';
 import '../widgets/food_container_widget.dart';

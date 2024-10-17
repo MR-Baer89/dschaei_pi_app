@@ -1,5 +1,5 @@
-import 'package:dschaei_pi_app/screens/home_screen.dart';
-import 'package:dschaei_pi_app/models/snackish_box.dart';
+import 'package:dschaei_pi_app/features/screens/home_screen.dart';
+import 'package:dschaei_pi_app/features/models/snackish_box.dart';
 import 'package:flutter/material.dart';
 
 class StartScreen extends StatelessWidget {
