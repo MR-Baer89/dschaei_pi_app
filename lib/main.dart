@@ -1,4 +1,4 @@
-import 'package:dschaei_pi_app/screens/start_screen.dart';
+import 'package:dschaei_pi_app/features/screens/start_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
